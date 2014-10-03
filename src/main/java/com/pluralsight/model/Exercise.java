@@ -21,9 +21,9 @@ public class Exercise {
 	@NotNull
 	private String activity;
 
+    @ManyToOne
     private Goal goal;
 
-    @ManyToOne
     public Goal getGoal() {
         return goal;
     }
