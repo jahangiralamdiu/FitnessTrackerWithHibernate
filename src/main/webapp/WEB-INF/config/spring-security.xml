@@ -16,13 +16,18 @@
     </http>
 
     <authentication-manager>
-        <authentication-provider>
-            <user-service>
-                <user name="jahangir" password="secret" authorities="ROLE_USER"/>
-            </user-service>
-        </authentication-provider>
+        <authentication-provider user-service-ref="userDetailsService"/>
     </authentication-manager>
 
+<beans:bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+    <beans:property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+    <beans:property name="url" value="jdbc:mysql://localhost:3306/fitnessTracker"/>
+    <beans:property name="username" value="root"/>
+    <beans:property name="password" value="1234"/>
+ </beans:bean>
 
+    <beans:bean id="userDetailsService" class="org.springframework.security.core.userdetails.jdbc.JdbcDaoImpl">
+        <beans:property name="dataSource" ref="dataSource"/>
+    </beans:bean>
 
 </beans:beans>
