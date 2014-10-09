@@ -17,7 +17,7 @@ public class PasswordHash extends TestCase {
 
     public void testMD5Hash()
     {
-        String password = "secret";
+        String password = "1234";
         Md5PasswordEncoder passwordEncoder = new Md5PasswordEncoder();
         String hashedPassword = passwordEncoder.encodePassword(password, null);
         System.out.println(hashedPassword);

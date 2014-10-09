@@ -32,4 +32,10 @@ public class LoginController {
     {
         return "logout";
     }
+
+    @RequestMapping(value = "/403", method = RequestMethod.GET)
+    public String error403(ModelMap model)
+    {
+        return "403";
+    }
 }
